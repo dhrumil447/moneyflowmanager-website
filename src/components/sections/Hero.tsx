@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Download, Sparkles, Star } from "lucide-react";
-import { PhoneMockup } from "./PhoneMockup";
+import { PhoneMockup } from "../PhoneMockup";
 import logo from "@/assets/logo.png";
 
 export const Hero = () => {
