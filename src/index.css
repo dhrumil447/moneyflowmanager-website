@@ -123,8 +123,22 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
   .animate-pulse-soft {
     animation: pulse-soft 3s ease-in-out infinite;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 
