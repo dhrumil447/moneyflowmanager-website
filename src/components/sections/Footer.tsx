@@ -45,12 +45,20 @@ export const Footer = () => {
               privacy-first, made for everyday people.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              {[Twitter, Instagram, Facebook, Linkedin, Mail].map((Icon, i) => (
+              {[
+                { Icon: Twitter, href: "#", label: "Twitter" },
+                { Icon: Instagram, href: "https://www.instagram.com/moneyflowmanager.app?igsh=enh3eGRpZTE2cDA0", label: "Instagram" },
+                { Icon: Facebook, href: "#", label: "Facebook" },
+                { Icon: Linkedin, href: "#", label: "LinkedIn" },
+                { Icon: Mail, href: "#", label: "Email" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="h-9 w-9 rounded-full bg-background/10 hover:bg-primary text-background flex items-center justify-center transition-colors"
-                  aria-label="Social link"
+                  aria-label={label}
                 >
                   <Icon className="h-4 w-4" />
                 </a>
