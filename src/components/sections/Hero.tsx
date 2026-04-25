@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Download, Sparkles, Star } from "lucide-react";
-import { PhoneMockup } from "../PhoneMockup";
+import { PhoneFrame } from "../PhoneFrame";
 import logo from "@/assets/logo.png";
+import appDaily from "@/assets/app-daily.jpg";
 
 export const Hero = () => {
   return (
