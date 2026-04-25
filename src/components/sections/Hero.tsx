@@ -62,7 +62,7 @@ export const Hero = () => {
           <div className="relative flex items-center justify-center animate-fade-up" style={{ animationDelay: "0.15s" }}>
             <div aria-hidden className="absolute inset-0 bg-gradient-primary opacity-20 blur-3xl rounded-full" />
             <div className="relative">
-              <PhoneMockup variant="home" className="animate-float" />
+              <PhoneFrame src={appDaily} alt="MoneyFlow Manager daily transactions screen" loading="eager" className="animate-float" />
               {/* Floating cards */}
               <div className="absolute -left-4 sm:-left-12 top-16 hidden sm:block animate-float" style={{ animationDelay: "1s" }}>
                 <div className="rounded-2xl bg-card border border-border shadow-lg-soft p-3 w-44">
@@ -72,19 +72,20 @@ export const Hero = () => {
                     </div>
                     <div>
                       <p className="text-[10px] text-muted-foreground">Salary</p>
-                      <p className="text-sm font-bold text-income">₹45,000</p>
+                      <p className="text-sm font-bold text-income">₹25,000</p>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="absolute -right-4 sm:-right-10 bottom-20 hidden sm:block animate-float" style={{ animationDelay: "2s" }}>
                 <div className="rounded-2xl bg-card border border-border shadow-lg-soft p-3 w-40">
-                  <p className="text-[10px] text-muted-foreground">Saved this month</p>
-                  <p className="text-base font-bold text-foreground">₹26,580</p>
+                  <p className="text-[10px] text-muted-foreground">Total Balance</p>
+                  <p className="text-base font-bold text-foreground">₹66,550</p>
                   <div className="mt-1.5 h-1.5 bg-secondary rounded-full overflow-hidden">
-                    <div className="h-full w-[68%] bg-gradient-primary rounded-full" />
+                    <div className="h-full w-[78%] bg-gradient-primary rounded-full" />
                   </div>
                 </div>
+              </div>
               </div>
             </div>
           </div>
