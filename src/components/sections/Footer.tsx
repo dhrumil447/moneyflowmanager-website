@@ -1,5 +1,13 @@
 import { Logo } from "../Logo";
-import { ExternalLink, Camera, Globe, Link, Mail } from "lucide-react";
+import {
+  ExternalLink,
+  Camera,
+  Globe,
+  Link as LinkIcon,
+  Mail,
+} from "lucide-react";
+
+import { Link } from "react-router-dom";
 
 const cols = [
   {
@@ -54,35 +62,19 @@ const FooterColumn = ({
     <h4 className="text-sm font-bold text-background mb-4 uppercase tracking-wider">
       {title}
     </h4>
+
     <ul className="space-y-3">
       {links.map((link) => (
         <li key={link.label}>
-          <a
-            href={link.href}
+          <Link
+            to={link.href}
             className="text-sm text-background/70 hover:text-primary transition-colors no-underline"
           >
             {link.label}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
-  </div>
-);
-
-const SocialLinks = () => (
-  <div className="mt-6 flex items-center gap-3">
-    {socialLinks.map(({ Icon, href, label }) => (
-      <a
-        key={label}
-        href={href}
-        target={href.startsWith("http") ? "_blank" : undefined}
-        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-        className="h-9 w-9 rounded-full bg-background/10 hover:bg-primary text-background flex items-center justify-center transition-colors"
-        aria-label={label}
-      >
-        <Icon className="h-4 w-4" />
-      </a>
-    ))}
   </div>
 );
 
@@ -99,7 +91,6 @@ export const FooterSection = () => {
               The smart way to track income, expenses, and savings goals —
               beautifully simple, privacy-first, made for everyday people.
             </p>
-            <SocialLinks />
           </div>
 
           <div className="lg:col-span-8 grid sm:grid-cols-3 gap-8">

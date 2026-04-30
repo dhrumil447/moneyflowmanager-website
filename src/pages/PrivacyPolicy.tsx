@@ -1,5 +1,3 @@
-import { Navbar } from "@/components/Navbar";
-import { FooterSection } from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeft,
