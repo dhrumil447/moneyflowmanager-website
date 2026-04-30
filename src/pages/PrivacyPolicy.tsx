@@ -1,134 +1,146 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Shield, Lock, Database, Cloud, Eye, Mail } from "lucide-react";
+import {
+  ArrowLeft,
+  Shield,
+  Lock,
+  Database,
+  Cloud,
+  Eye,
+  Mail,
+  Info,
+  Key,
+  Users,
+  RefreshCw,
+} from "lucide-react";
 import { Link } from "react-router-dom";
+
+const EFFECTIVE_DATE = "April 30, 2026";
 
 const sections = [
   {
+    icon: Info,
+    title: "1. Introduction",
+    body: (
+      <p>
+        MoneyFlow Manager is a personal finance application designed to help users track income,
+        expenses, and financial activity directly on their device. This Privacy Policy explains how
+        user information is handled.
+      </p>
+    ),
+  },
+  {
     icon: Database,
-    title: "1. What data we collect",
+    title: "2. Information We Collect",
     body: (
       <>
         <p>
-          MoneyFlow Manager is designed to be <strong>privacy-first</strong>. The app collects only the
-          financial data that <em>you</em> manually enter, including:
+          MoneyFlow Manager does <strong>not</strong> collect, store, or transmit any personal data
+          to external servers.
         </p>
-        <ul className="list-disc pl-6 mt-3 space-y-1.5">
-          <li>Income transactions (amount, source, category, date, notes)</li>
-          <li>Expense transactions (amount, category, account, date, notes)</li>
-          <li>Account balances (cash, bank, wallet, UPI, etc.)</li>
-          <li>Savings goals and progress</li>
-          <li>Custom categories, sub-categories and preferences</li>
-        </ul>
         <p className="mt-3">
-          We do <strong>not</strong> collect your name, email, phone number, contacts, location, photos,
-          or any data outside the app — unless you explicitly opt in to cloud backup.
-        </p>
-      </>
-    ),
-  },
-  {
-    icon: Lock,
-    title: "2. How your data is stored",
-    body: (
-      <>
-        <p>
-          By default, all your income and expense data is stored <strong>locally on your device</strong>{" "}
-          inside the app's private encrypted storage. This means:
-        </p>
-        <ul className="list-disc pl-6 mt-3 space-y-1.5">
-          <li>No transaction ever leaves your phone unless you choose to back it up</li>
-          <li>Other apps on your device cannot read MoneyFlow Manager's data</li>
-          <li>The app works fully offline — no internet connection is required</li>
-          <li>Your database is protected by your device's secure storage layer</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    icon: Shield,
-    title: "3. Passcode & biometric security",
-    body: (
-      <>
-        <p>
-          You can lock the app with a <strong>4–6 digit passcode</strong> and optional{" "}
-          <strong>biometric authentication</strong> (fingerprint or face unlock). When enabled:
-        </p>
-        <ul className="list-disc pl-6 mt-3 space-y-1.5">
-          <li>The app requires authentication on every launch and after backgrounding</li>
-          <li>Passcodes are hashed locally — never stored in plain text</li>
-          <li>Biometric data never leaves your device's secure enclave</li>
-          <li>Even if your phone is unlocked, MoneyFlow data stays protected</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    icon: Cloud,
-    title: "4. Backup & restore",
-    body: (
-      <>
-        <p>
-          You can optionally back up your data so you don't lose it when switching phones. Backups are{" "}
-          <strong>encrypted</strong> and stored only in a location you choose:
-        </p>
-        <ul className="list-disc pl-6 mt-3 space-y-1.5">
-          <li>Your personal Google Drive (Android) or iCloud Drive (iOS) account</li>
-          <li>Local file export to your device storage</li>
-          <li>Manual share via your preferred method</li>
-        </ul>
-        <p className="mt-3">
-          MoneyFlow Manager <strong>never uploads your data to our servers</strong>. We do not have
-          access to your backups, and we cannot read them. Restore is one-tap on any new device.
+          All information entered by the user remains on the user's device.
         </p>
       </>
     ),
   },
   {
     icon: Eye,
-    title: "5. Analytics & tracking",
+    title: "3. How Data Is Used",
     body: (
       <>
         <p>
-          We do not sell, rent, or share your financial data with anyone — ever. The app contains:
+          All data such as transactions, categories, accounts, and settings are used only to provide
+          app functionality including tracking, analytics, and financial insights.
         </p>
+        <p className="mt-3">No data is processed outside the user's device.</p>
+      </>
+    ),
+  },
+  {
+    icon: Lock,
+    title: "4. Data Storage and Security",
+    body: (
+      <>
+        <p>All data is stored locally on the user's device using secure local storage.</p>
         <ul className="list-disc pl-6 mt-3 space-y-1.5">
-          <li><strong>No third-party advertising trackers</strong></li>
-          <li><strong>No social media SDKs</strong></li>
-          <li><strong>No transaction-level analytics</strong> sent off device</li>
+          <li>The app provides an optional passcode lock for additional protection.</li>
+          <li>
+            Backup and restore functionality operates entirely on-device and does not upload data to
+            any server.
+          </li>
         </ul>
-        <p className="mt-3">
-          We may collect anonymous, aggregated crash reports and basic usage events (e.g. "app opened")
-          to fix bugs and improve performance. These reports contain no financial information and cannot
-          be linked back to you.
-        </p>
+      </>
+    ),
+  },
+  {
+    icon: Key,
+    title: "5. Permissions",
+    body: (
+      <>
+        <ul className="list-disc pl-6 space-y-1.5">
+          <li>
+            <strong>Storage Permission:</strong> Used only for creating and restoring local backup
+            files
+          </li>
+          <li>
+            <strong>SMS Permission:</strong> Not used by the app
+          </li>
+          <li>
+            <strong>Location:</strong> Not used
+          </li>
+        </ul>
+        <p className="mt-3">No unnecessary or sensitive permissions are required.</p>
       </>
     ),
   },
   {
     icon: Shield,
-    title: "6. Your rights & control",
+    title: "6. Data Sharing",
     body: (
       <>
-        <p>You are always in full control of your data. At any time you can:</p>
-        <ul className="list-disc pl-6 mt-3 space-y-1.5">
-          <li>Export all your transactions as a backup file</li>
-          <li>Delete individual transactions, accounts, or goals</li>
-          <li>Reset the entire app from Settings → Reset (this is permanent)</li>
-          <li>Uninstall the app to remove all local data</li>
-        </ul>
+        <p>
+          MoneyFlow Manager does <strong>not</strong> share, sell, or transfer any user data to
+          third parties.
+        </p>
+        <p className="mt-3">The app does not use advertising services or tracking technologies.</p>
+      </>
+    ),
+  },
+  {
+    icon: Users,
+    title: "7. Children's Privacy",
+    body: (
+      <>
+        <p>This app is not directed to children under the age of 13.</p>
+        <p className="mt-3">
+          Since no personal data is collected, no data from children is processed.
+        </p>
+      </>
+    ),
+  },
+  {
+    icon: RefreshCw,
+    title: "8. Changes to This Privacy Policy",
+    body: (
+      <>
+        <p>This Privacy Policy may be updated from time to time.</p>
+        <p className="mt-3">Any changes will be reflected by updating the effective date.</p>
       </>
     ),
   },
   {
     icon: Mail,
-    title: "7. Contact us",
+    title: "9. Contact",
     body: (
       <p>
-        Questions, concerns, or requests about your privacy? We respond within 48 hours. Reach us at{" "}
-        <a href="mailto:privacy@moneyflowmanager.app" className="text-primary font-semibold hover:underline">
-          privacy@moneyflowmanager.app
+        If you have any questions or concerns about this Privacy Policy, you can contact us at{" "}
+        <a
+          href="mailto:support@moneyflowmanager.app"
+          className="text-primary font-semibold hover:underline"
+        >
+          support@moneyflowmanager.app
         </a>
         .
       </p>
@@ -163,10 +175,11 @@ const PrivacyPolicy = () => {
             Privacy <span className="text-gradient">Policy</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-            How MoneyFlow Manager stores, protects, and never shares your income and expense data.
+            How MoneyFlow Manager handles your information — built to keep your financial data
+            entirely on your device.
           </p>
           <p className="mt-3 text-sm text-muted-foreground">
-            Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            Effective Date: <span className="text-foreground font-medium">{EFFECTIVE_DATE}</span>
           </p>
         </div>
       </section>
@@ -176,10 +189,10 @@ const PrivacyPolicy = () => {
         <div className="rounded-2xl bg-gradient-primary text-primary-foreground p-6 sm:p-8 shadow-glow">
           <h2 className="text-xl font-bold mb-3">The short version</h2>
           <ul className="space-y-2 text-primary-foreground/95 text-base">
-            <li>✓ Your transactions stay on your device — encrypted and private.</li>
-            <li>✓ We never see, store, or sell your financial data.</li>
-            <li>✓ Backups go to your own cloud account, not ours.</li>
-            <li>✓ Passcode + biometric lock protects everything.</li>
+            <li>✓ No personal data is collected, stored, or transmitted to any server.</li>
+            <li>✓ Your transactions stay on your device using secure local storage.</li>
+            <li>✓ Backup &amp; restore work entirely on-device — nothing is uploaded.</li>
+            <li>✓ No advertising, no tracking, no selling of data — ever.</li>
           </ul>
         </div>
       </section>
