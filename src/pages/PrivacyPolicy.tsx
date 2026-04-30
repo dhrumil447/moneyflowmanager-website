@@ -152,10 +152,10 @@ const sections = [
         If you have any questions or concerns about this Privacy Policy, you can
         contact us at{" "}
         <a
-          href="mailto:support@moneyflowmanager.app"
+          href="mailto:moneyflowmanager.support@gmail.com"
           className="text-primary font-semibold hover:underline"
         >
-          support@moneyflowmanager.app
+          moneyflowmanager.support@gmail.com
         </a>
         .
       </p>
