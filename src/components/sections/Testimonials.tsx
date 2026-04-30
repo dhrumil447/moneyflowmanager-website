@@ -1,4 +1,5 @@
-import { Star } from "lucide-react";
+import { SectionHeader } from "@/components/sections/shared/SectionHeader";
+import { StarRating } from "@/components/StarRating";
 
 const reviews = [
   {
@@ -33,41 +34,48 @@ const reviews = [
   },
 ];
 
-export const Testimonials = () => {
+const TestimonialCard = ({
+  name,
+  role,
+  text,
+}: {
+  name: string;
+  role: string;
+  text: string;
+}) => (
+  <div className="rounded-2xl bg-card border border-border p-6 shadow-sm-soft hover:shadow-md-soft transition-all">
+    <StarRating className="mb-3" />
+    <p className="text-foreground leading-relaxed">"{text}"</p>
+    <div className="mt-5 flex items-center gap-3">
+      <div className="h-10 w-10 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-bold">
+        {name.charAt(0)}
+      </div>
+      <div>
+        <p className="text-sm font-bold text-foreground">{name}</p>
+        <p className="text-xs text-muted-foreground">{role}</p>
+      </div>
+    </div>
+  </div>
+);
+
+export const TestimonialsSection = () => {
   return (
     <section className="py-20 md:py-28 bg-secondary/40">
       <div className="container-px mx-auto max-w-7xl">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-3 py-1 text-xs font-semibold mb-4">
-            Loved by users
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
-            Trusted by <span className="text-gradient">50,000+ people</span>
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Real reviews from real people taking control of their finances.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Loved by users"
+          title={
+            <>
+              Trusted by <span className="text-gradient">50,000+ people</span>
+            </>
+          }
+          description="Real reviews from real people taking control of their finances."
+          className="max-w-2xl mx-auto mb-14"
+        />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {reviews.map((r) => (
-            <div key={r.name} className="rounded-2xl bg-card border border-border p-6 shadow-sm-soft hover:shadow-md-soft transition-all">
-              <div className="flex gap-0.5 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <p className="text-foreground leading-relaxed">"{r.text}"</p>
-              <div className="mt-5 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-bold">
-                  {r.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-foreground">{r.name}</p>
-                  <p className="text-xs text-muted-foreground">{r.role}</p>
-                </div>
-              </div>
-            </div>
+          {reviews.map((review) => (
+            <TestimonialCard key={review.name} {...review} />
           ))}
         </div>
       </div>

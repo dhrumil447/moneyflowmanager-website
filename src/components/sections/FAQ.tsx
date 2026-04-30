@@ -1,6 +1,10 @@
 import {
-  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
 } from "@/components/ui/accordion";
+import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 
 const faqs = [
   {
@@ -29,24 +33,25 @@ const faqs = [
   },
 ];
 
-export const FAQ = () => {
+export const FAQSection = () => {
   return (
     <section id="faq" className="py-20 md:py-28">
       <div className="container-px mx-auto max-w-3xl">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-3 py-1 text-xs font-semibold mb-4">
-            FAQ
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
-            Frequently asked <span className="text-gradient">questions</span>
-          </h2>
-        </div>
+        <SectionHeader
+          eyebrow="FAQ"
+          title={
+            <>
+              Frequently asked <span className="text-gradient">questions</span>
+            </>
+          }
+          className="mb-12"
+        />
 
         <Accordion type="single" collapsible className="space-y-3">
-          {faqs.map((f, i) => (
+          {faqs.map((f) => (
             <AccordionItem
-              key={i}
-              value={`item-${i}`}
+              key={f.q}
+              value={f.q}
               className="rounded-2xl bg-card border border-border px-6 shadow-sm-soft data-[state=open]:shadow-md-soft transition-shadow"
             >
               <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline py-5">

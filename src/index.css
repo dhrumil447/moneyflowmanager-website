@@ -1,3 +1,6 @@
+@config "../tailwind.config.js";
+@reference "tailwindcss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,8 +12,8 @@
 @layer base {
   :root {
     /* Surfaces */
-    --background: 210 40% 98%;       /* #F8FAFC */
-    --foreground: 240 17% 14%;       /* #1E1E2D */
+    --background: 210 40% 98%; /* #F8FAFC */
+    --foreground: 240 17% 14%; /* #1E1E2D */
 
     --card: 0 0% 100%;
     --card-foreground: 240 17% 14%;
@@ -19,7 +22,7 @@
     --popover-foreground: 240 17% 14%;
 
     /* Brand — MoneyFlow Green */
-    --primary: 162 81% 43%;          /* #16C79A */
+    --primary: 162 81% 43%; /* #16C79A */
     --primary-foreground: 0 0% 100%;
     --primary-glow: 158 75% 55%;
 
@@ -32,10 +35,10 @@
     --accent: 162 81% 95%;
     --accent-foreground: 162 81% 25%;
 
-    --destructive: 0 84% 60%;        /* #EF4444 expense */
+    --destructive: 0 84% 60%; /* #EF4444 expense */
     --destructive-foreground: 0 0% 100%;
 
-    --income: 217 91% 60%;           /* #3B82F6 income */
+    --income: 217 91% 60%; /* #3B82F6 income */
     --income-foreground: 0 0% 100%;
 
     --expense: 0 84% 60%;
@@ -48,17 +51,32 @@
     --radius: 1rem;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(162 81% 43%), hsl(158 75% 55%));
-    --gradient-hero: radial-gradient(ellipse at top right, hsl(162 81% 43% / 0.18), transparent 60%),
-                     radial-gradient(ellipse at bottom left, hsl(217 91% 60% / 0.10), transparent 55%);
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(162 81% 43%),
+      hsl(158 75% 55%)
+    );
+    --gradient-hero:
+      radial-gradient(
+        ellipse at top right,
+        hsl(162 81% 43% / 0.18),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse at bottom left,
+        hsl(217 91% 60% / 0.1),
+        transparent 55%
+      );
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 99%));
 
     /* Shadows */
     --shadow-sm: 0 2px 8px -2px hsl(240 17% 14% / 0.06);
-    --shadow-md: 0 8px 24px -8px hsl(240 17% 14% / 0.10);
+    --shadow-md: 0 8px 24px -8px hsl(240 17% 14% / 0.1);
     --shadow-lg: 0 24px 48px -16px hsl(240 17% 14% / 0.14);
     --shadow-glow: 0 20px 60px -20px hsl(162 81% 43% / 0.45);
-    --shadow-phone: 0 40px 80px -30px hsl(240 17% 14% / 0.30), 0 8px 24px -8px hsl(162 81% 43% / 0.15);
+    --shadow-phone:
+      0 40px 80px -30px hsl(240 17% 14% / 0.3),
+      0 8px 24px -8px hsl(162 81% 43% / 0.15);
 
     /* Motion */
     --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -85,13 +103,26 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply tracking-tight;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
@@ -123,6 +154,15 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+  .anim-delay-150 {
+    animation-delay: 0.15s;
+  }
+  .anim-delay-1000 {
+    animation-delay: 1s;
+  }
+  .anim-delay-2000 {
+    animation-delay: 2s;
+  }
   .animate-pulse-soft {
     animation: pulse-soft 3s ease-in-out infinite;
   }
@@ -136,16 +176,32 @@
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.85; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
 }
